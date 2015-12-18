@@ -26,7 +26,7 @@ function campaign_thermometer_menu() {
 }
  
 function campaignwidget() {
-  $return_page.=monthly_log('2015-12-00');
+  $return_page.=get_donations_amount('2015-12-00');
   return $return_page;
 }
 

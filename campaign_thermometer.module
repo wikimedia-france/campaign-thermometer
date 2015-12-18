@@ -44,7 +44,8 @@ function get_donations_amount($date) {
   $query->addExpression('FLOOR(SUM(total_amount))', 'amount');
  
   $result = $query->execute()->fetchAll();;
-  $amount = $result[0];
+  $data = (array)$result[0];
+  $amount = $data['amount'];
 
   $str_return.="<div id=\"donations-thermometer\">
   <h3>On a besoin de vous !</h3>

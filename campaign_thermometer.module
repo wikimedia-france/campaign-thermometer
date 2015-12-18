@@ -26,7 +26,7 @@ function campaign_thermometer_menu() {
 }
  
 function campaignwidget() {
-  $return_page.=get_donations_amount('2015-12-00');
+  $return_page=get_donations_amount('2015-12-00');
   return $return_page;
 }
 
@@ -35,8 +35,8 @@ function get_donations_amount($date) {
 
   $str_return= '';
   $str_return.="<div id=\"donations-thermometer\">
-<p><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">Soutenez-nous</a></p>
-<p>Les données de cet aperçu sont présentées automatiquement sans garantie d'exactitude et d'exhaustivité.</p>";
+<p><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">Soutenez-nous !</a></p>
+<p>Les données de cet aperçu sont présentées automatiquement sans garantie d'exactitude et d'exhaustivité.</p></div>";
 	
   $query = db_select('civicrm_contribution', 'c');
  
@@ -46,7 +46,7 @@ function get_donations_amount($date) {
     ->condition('receive_date', $date,'>=');
   $query->addExpression('FLOOR(SUM(total_amount))', 'amount');
  
-  $result = $query->execute();
+  $result = $query->execute()->fetchAll();;
 
   print_r($result);
   return $str_return;

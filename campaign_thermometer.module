@@ -33,8 +33,8 @@ function campaignwidget() {
 function get_donations_amount($date) {
   global $base_url;
 
-  $str_return.=" ".french_month($month)." ".$year." à notre association via notre interface de dons en ligne.</p>
-<p><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">Vous aussi, effectuez un don à Wikimédia France pour rejoindre cette liste !</a></p>
+  $str_return.="<div id=\"donations-thermometer\">
+<p><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">Soutenez-nous</a></p>
 <p>Les données de cet aperçu sont présentées automatiquement sans garantie d'exactitude et d'exhaustivité.</p>";
 	
   $query = db_select('civicrm_contribution', 'c');

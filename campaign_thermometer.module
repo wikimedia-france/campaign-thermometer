@@ -40,10 +40,10 @@ function get_donations_amount($date) {
   $query = db_select('civicrm_contribution', 'c');
  
   $query
-    ->addExpression('FLOOR(SUM(total_amount))', 'amount')
     ->condition('financial_type_id', array(1,3), 'IN') /* 1 : Don, 3 : contribution campagne*/
     ->condition('contribution_status_id', '1')
     ->condition('receive_date', $date,'>=');
+  $query->addExpression('FLOOR(SUM(total_amount))', 'amount');
  
   $result = $query->execute();
 

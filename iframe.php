@@ -12,8 +12,8 @@ try {
 $response = $bdd->query("SELECT FLOOR(SUM(total_amount)) AS current_amount FROM civicrm_contribution WHERE contribution_status_id = 1 AND financial_type_id IN (1, 3) AND receive_date >= '2015-12-01';");
 
 $data = $response->fetchAll();
-print_r($data);
-$current_amount = $data['current_amount'];
+
+$current_amount = $data[0]['current_amount'];
 
 $response = $bdd->query("SELECT FLOOR(goal_revenue) AS goal_amount FROM civicrm_campaign WHERE id =4;");
 
@@ -44,7 +44,7 @@ $goal_amount = $data[0]['goal_amount'];
   <body>
   	<div id=\"donations-thermometer\">
   		<h3>On a besoin de vous !</h3>
-  		<p><?php echo $current_amount; ?> / <?php echo $goal_amount; ?>
+  		<p><?php echo number_format($current_amount, 2, ',', ' '); ?> / <?php echo number_format($goal_amount, 2, ',', ' '); ?>
   		<p>Wikimédia France ne vit que grâce à vous.</p>
 		<p><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">Soutenez-nous !</a></p>
 	</div>

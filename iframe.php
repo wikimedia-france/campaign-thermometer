@@ -9,15 +9,15 @@ try {
 	die('Erreur : ' . $e->getMessage());
 }
 
-$reponse = $bdd->query('select FLOOR(SUM(total_amount)) AS total from civicrm_contribution WHERE contribution_status_id = 1 AND financial_type_id IN (1, 3) AND receive_date >= '2015-12-01';');
+$response = $bdd->query("select FLOOR(SUM(total_amount)) AS total from civicrm_contribution WHERE contribution_status_id = 1 AND financial_type_id IN (1, 3) AND receive_date >= '2015-12-01';");
 
-$donnees = $reponse->fetchAll();
+$donnees = $response->fetchAll();
 
 print_r($donnees);
 
-$reponse = $bdd->query('select FLOOR(goal_revenue) from civicrm_campaign where id =4;');
+$response = $bdd->query("select FLOOR(goal_revenue) from civicrm_campaign where id =4;");
 
-$donnees = $reponse->fetchAll();
+$donnees = $response->fetchAll();
 
 print_r($donnees);
 

@@ -20,6 +20,8 @@ $response = $bdd->query("SELECT FLOOR(goal_revenue) AS goal_amount FROM civicrm_
 $data = $response->fetchAll();
 $goal_amount = $data[0]['goal_amount'];
 
+$percentage = $current_amount/$goal_amount*100;
+
 //*/
 ?>
 <!DOCTYPE html>
@@ -42,11 +44,20 @@ $goal_amount = $data[0]['goal_amount'];
     <![endif]-->
   </head>
   <body>
-  	<div id=\"donations-thermometer\">
-  		<h3>On a besoin de vous !</h3>
-  		<p><?php echo number_format($current_amount, 2, ',', ' '); ?> / <?php echo number_format($goal_amount, 2, ',', ' '); ?>
-  		<p>Wikimédia France ne vit que grâce à vous.</p>
-		<p><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">Soutenez-nous !</a></p>
+  	<div id="donations-thermometer" class="container">
+  		<div class="row">
+  			<div class="col-md-3">
+		  		<h3>On a besoin de vous !</h3>
+		  		<div class="progress">
+  					<div class="progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $percentage; ?>%">
+    					<span class="sr-only"><?php echo $percentage; ?>%</span>
+  					</div>
+				</div>
+		  		<p><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?></p>
+		  		<p>Wikimédia France ne vit que grâce à vos dons! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,
+		  		<strong><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">soutenez-nous !</a></strong></p>
+	  		</div>
+	  	</div>
 	</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

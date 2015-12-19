@@ -46,19 +46,15 @@ $percentage = round($current_amount/$goal_amount*100, 0);
   </head>
   <body>
   	<div id="donations-thermometer">
-  		<div class="row">
-  			<div class="col-md-3">
-		  		<h3>On a besoin de vous !</h3>
-		  		<div class="progress">
-  					<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $percentage; ?>%">
-    					<span class="sr-only"><?php echo $percentage; ?>%</span><?php echo $percentage; ?>%
-  					</div>
+  		<h3>On a besoin de vous !</h3>
+  		<div class="progress">
+				<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $percentage; ?>%">
+				<span class="sr-only"><?php echo $percentage; ?>%</span><?php echo $percentage; ?>%
 				</div>
-		  		<p class="text-center"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
-		  		<p>Wikimédia France ne vit que grâce à vos dons ! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,
-		  		<strong><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">soutenez-nous !</a></strong></p>
-	  		</div>
-	  	</div>
+		</div>
+  		<p class="text-center"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
+  		<p>Wikimédia France ne vit que grâce à vos dons ! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,
+  		<strong><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">soutenez-nous !</a></strong></p>
 	</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

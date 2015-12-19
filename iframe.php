@@ -20,7 +20,7 @@ $response = $bdd->query("SELECT FLOOR(goal_revenue) AS goal_amount FROM civicrm_
 $data = $response->fetchAll();
 $goal_amount = $data[0]['goal_amount'];
 
-$percentage = $current_amount/$goal_amount*100;
+$percentage = round($current_amount/$goal_amount*100, 0);
 
 //*/
 ?>

@@ -54,7 +54,7 @@ $percentage = round($current_amount/$goal_amount*100, 0);
 		</div>
   		<p class="text-center"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
   		<p>Wikimédia France ne vit que grâce à vos dons ! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,
-  		<strong><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">soutenez-nous !</a></strong></p>
+  		<strong><a href="http://dons.wikimedia.fr/civicrm/contribute/transact?reset=1&id=2" title="Soutenez-nous">soutenez-nous !</a></strong></p>
 	</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

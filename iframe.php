@@ -14,6 +14,13 @@ $reponse = $bdd->query('select FLOOR(SUM(total_amount)) AS total from civicrm_co
 $donnees = $reponse->fetchAll();
 
 print_r($donnees);
+
+$reponse = $bdd->query('select FLOOR(goal_revenue) from civicrm_campaign where id =4;');
+
+$donnees = $reponse->fetchAll();
+
+print_r($donnees);
+
 //*/
 ?>
 <!DOCTYPE html>

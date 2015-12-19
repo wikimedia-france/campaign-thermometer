@@ -8,14 +8,6 @@ function campaign_thermometer_permission() {
   );
 }
 
-/*
- * Returns custom content to Drupal
- */
-function my_page_function(){
-    // Call theme() function, so that Drupal includes the custom-page.tpl.php template
-    return theme('thermometer-widget');
-}
-
 /**
  
 * Implementation of hook_menu().
@@ -33,16 +25,18 @@ function campaign_thermometer_menu() {
     return $items;
 }
 
-/*
- * Implementation of hook_theme().
+/**
+ * Implements hook_theme().
  */
-function campaign_thermometer_theme(){
-    return array(
-        'campaign_thermometer_template' => array(
-            // file name will be custom-page.tpl.php
-            'template' => 'thermometer-widget',
-        ),
-    );
+function campaign_thermometer_theme($existing, $type, $theme, $path) {
+  $theme = array();
+  $theme['node__blog_post'] = array(
+    'render element' => 'content',
+    'base hook' => 'node',
+    'template' => 'node--cp-iframe',
+    'path' => drupal_get_path('module', 'thermometer_theme') . '/templates',
+   );
+  return $theme;
 }
  
 function campaignwidget() {

@@ -44,7 +44,7 @@ $percentage = round($current_amount/$goal_amount*100, 0);
     <![endif]-->
   </head>
   <body>
-  	<div id="donations-thermometer" class="container">
+  	<div id="donations-thermometer">
   		<div class="row">
   			<div class="col-md-3">
 		  		<h3>On a besoin de vous !</h3>

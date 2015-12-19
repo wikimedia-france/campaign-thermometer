@@ -1,4 +1,5 @@
 #donations-thermometer {
+	max-width: 250px;
 	border: 1px solid #3BAAF5;
 	padding: 5px;
 	-webkit-border-radius: 5px;

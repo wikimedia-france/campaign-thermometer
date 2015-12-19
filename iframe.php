@@ -9,17 +9,15 @@ try {
 	die('Erreur : ' . $e->getMessage());
 }
 
-$response = $bdd->query("select FLOOR(SUM(total_amount)) AS total from civicrm_contribution WHERE contribution_status_id = 1 AND financial_type_id IN (1, 3) AND receive_date >= '2015-12-01';");
+$response = $bdd->query("SELECT FLOOR(SUM(total_amount)) AS current_amount FROM civicrm_contribution WHERE contribution_status_id = 1 AND financial_type_id IN (1, 3) AND receive_date >= '2015-12-01';");
 
-$donnees = $response->fetchAll();
+$data = $response->fetchAll();
+$current_amount = $data['current_amount'];
 
-print_r($donnees);
+$response = $bdd->query("SELECT FLOOR(goal_revenue) AS goal_amount FROM civicrm_campaign WHERE id =4;");
 
-$response = $bdd->query("select FLOOR(goal_revenue) from civicrm_campaign where id =4;");
-
-$donnees = $response->fetchAll();
-
-print_r($donnees);
+$data = $response->fetchAll();
+$goal_amount = $data['goal_amount'];
 
 //*/
 ?>
@@ -45,7 +43,7 @@ print_r($donnees);
   <body>
   	<div id=\"donations-thermometer\">
   		<h3>On a besoin de vous !</h3>
-  		<p>$amount / 300 000
+  		<p><?php echo $current_amount; ?> / <?php echo $goal_amount; ?>
   		<p>Wikimédia France ne vit que grâce à vous.</p>
 		<p><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">Soutenez-nous !</a></p>
 	</div>

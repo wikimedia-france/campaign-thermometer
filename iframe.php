@@ -12,12 +12,13 @@ try {
 $response = $bdd->query("SELECT FLOOR(SUM(total_amount)) AS current_amount FROM civicrm_contribution WHERE contribution_status_id = 1 AND financial_type_id IN (1, 3) AND receive_date >= '2015-12-01';");
 
 $data = $response->fetchAll();
+print_r($data);
 $current_amount = $data['current_amount'];
 
 $response = $bdd->query("SELECT FLOOR(goal_revenue) AS goal_amount FROM civicrm_campaign WHERE id =4;");
 
 $data = $response->fetchAll();
-$goal_amount = $data['goal_amount'];
+$goal_amount = $data[0]['goal_amount'];
 
 //*/
 ?>

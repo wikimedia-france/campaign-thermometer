@@ -74,6 +74,5 @@ function get_donations_amount($date) {
 <p><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">Soutenez-nous !</a></p>
 </div>";
   
-  print_r($result);
   return $str_return;
 }

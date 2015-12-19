@@ -8,6 +8,14 @@ function campaign_thermometer_permission() {
   );
 }
 
+/*
+ * Returns custom content to Drupal
+ */
+function my_page_function(){
+    // Call theme() function, so that Drupal includes the custom-page.tpl.php template
+    return theme('thermometer-widget');
+}
+
 /**
  
 * Implementation of hook_menu().
@@ -32,7 +40,7 @@ function campaign_thermometer_theme(){
     return array(
         'campaign_thermometer_template' => array(
             // file name will be custom-page.tpl.php
-            'template' => 'thermometer',
+            'template' => 'thermometer-widget',
         ),
     );
 }

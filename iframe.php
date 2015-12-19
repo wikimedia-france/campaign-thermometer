@@ -49,7 +49,7 @@ $percentage = round($current_amount/$goal_amount*100, 0);
   			<div class="col-md-3">
 		  		<h3>On a besoin de vous !</h3>
 		  		<div class="progress">
-  					<div class="progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $percentage; ?>%">
+  					<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $percentage; ?>%">
     					<span class="sr-only"><?php echo $percentage; ?>%</span>
   					</div>
 				</div>

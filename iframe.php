@@ -34,7 +34,8 @@ $percentage = round($current_amount/$goal_amount*100, 0);
     <title>Soutenez-nous !</title>
 
     <!-- Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+	<link rel="stylesheet" href="iframe.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,7 +55,7 @@ $percentage = round($current_amount/$goal_amount*100, 0);
   					</div>
 				</div>
 		  		<p class="text-center"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
-		  		<p>Wikimédia France ne vit que grâce à vos dons! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,
+		  		<p>Wikimédia France ne vit que grâce à vos dons ! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,
 		  		<strong><a href=\"$base_url/civicrm/contribute/transact?reset=1&id=2\" title=\"Soutenez-nous\">soutenez-nous !</a></strong></p>
 	  		</div>
 	  	</div>

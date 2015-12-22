@@ -23,7 +23,11 @@ $percentage = round($current_amount/$goal_amount*100, 0);
 
 # Countdown
 $date = strtotime("2015-12-31 23:59:59 CET");
-print_r($date)
+$delay = $date - time();
+$days = floor($delay / 86400);
+$hours = floor(($delay % 86400) / 3600);
+
+echo ("Il reste". $days . " et " . $hours . " heures");
 
 //*/
 ?>

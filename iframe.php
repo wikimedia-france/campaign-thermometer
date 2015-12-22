@@ -1,8 +1,7 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 include_once('credentials.php');
 
+# DB connection
 try {
     $bdd = new PDO("mysql:host=$hostname;dbname=$dbname;charset=utf8", $dbuser, $dbpass);
 } catch (Exception $e) {
@@ -21,6 +20,10 @@ $data = $response->fetchAll();
 $goal_amount = $data[0]['goal_amount'];
 
 $percentage = round($current_amount/$goal_amount*100, 0);
+
+# Countdown
+$date = strtotime("2015-12-31 23:59:59 CET");
+print_r($date)
 
 //*/
 ?>

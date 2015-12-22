@@ -25,9 +25,10 @@ $percentage = round($current_amount/$goal_amount*100, 0);
 $date = strtotime("2015-12-31 23:59:59 CET");
 $delay = $date - time();
 $days = floor($delay / 86400);
-$hours = floor(($delay % 86400) / 3600);
+$hours = floor(($delay % 86400)/ 3600);
+$minutes = floor(($delay % 3600)/ 60);
+$seconds = floor($delay % 60);
 
-echo ("Il reste". $days . " et " . $hours . " heures");
 
 //*/
 ?>
@@ -60,6 +61,8 @@ echo ("Il reste". $days . " et " . $hours . " heures");
 				</div>
 		</div>
   		<p class="text-center"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
+      <p class="text-center">Plus que <?php echo $days .' j ' . $hours . ':' . $minutes . ':' . $seconds; ?>
+
   		<p>Wikimédia France ne vit que grâce à vos dons ! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,
   		<strong><a href="http://dons.wikimedia.fr/civicrm/contribute/transact?reset=1&id=2" target="_blank" title="Soutenez-nous">soutenez-nous !</a></strong></p>
 	</div>

@@ -61,7 +61,7 @@ $seconds = floor($delay % 60);
 				</div>
 		</div>
   		<p class="text-center"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
-      <p class="text-center">Plus que <?php echo $days .' j ' . $hours . ':' . $minutes . ':' . $seconds; ?>
+      <p class="text-center"><em>Plus que <?php echo $days .' jours ' . sprintf("%02d", $hours) . ':' . sprintf("%02d", $minutes) ; ?> !</em></p>
 
   		<p>Wikimédia France ne vit que grâce à vos dons ! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,
   		<strong><a href="http://dons.wikimedia.fr/civicrm/contribute/transact?reset=1&id=2" target="_blank" title="Soutenez-nous">soutenez-nous !</a></strong></p>

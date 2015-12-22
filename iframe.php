@@ -64,10 +64,7 @@ $seconds = floor($delay % 60);
 		</div>
   		<p class="text-left"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
       <?php if (time() < $date) { ?>
-      <p class="text-right"><em><?php 
-      if ($days > 0) { 
-        echo $days .' jours restants';
-      }  ?>
+      <p class="text-right"><em>
       </em></p>
 
   		<p>Wikimédia France ne vit que grâce à vos dons ! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,

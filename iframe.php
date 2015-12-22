@@ -60,13 +60,14 @@ $seconds = floor($delay % 60);
 				<span class="sr-only"><?php echo $percentage; ?>%</span><?php echo $percentage; ?>%
 				</div>
 		</div>
-  		<p class="text-center"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
+  		<p class="text-left"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
       <?php if (time() < $date) { ?>
-      <p class="text-center"><em>Plus que <?php 
-      if ($days > 0) { 
-        echo $days .' jours ';
-      } else {
-        echo sprintf("%02d", $hours) . ':' . sprintf("%02d", $minutes) ;
+      <p class="text-right"><em><?php 
+        if ($days > 0) { 
+          echo $days .' jours restants';
+        } else {
+          echo sprintf("%02d", $hours) . ':' . sprintf("%02d", $minutes) . ' restantes';
+        }
       } ?>
       </em></p>
 

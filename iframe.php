@@ -22,7 +22,7 @@ $goal_amount = $data[0]['goal_amount'];
 $percentage = round($current_amount/$goal_amount*100, 0);
 
 # Countdown
-$date = strtotime("2015-12-31 23:59:59 CET");
+$date = strtotime("2015-12-23 23:59:59 CET");
 $delay = $date - time();
 $days = floor($delay / 86400);
 $hours = floor(($delay % 86400)/ 3600);
@@ -64,9 +64,9 @@ $seconds = floor($delay % 60);
       <?php if (time() < $date) { ?>
       <p class="text-right"><em><?php 
         if ($days > 0) { 
-          echo $days .' jours restants';
+          echo '<span  class="text-primary"><strong>' . $days .'<strong></span> jours restants';
         } else {
-          echo sprintf("%02d", $hours) . ':' . sprintf("%02d", $minutes) . ' restantes';
+          echo '<span  class="text-primary"><strong>' . sprintf("%02d", $hours) . ':' . sprintf("%02d", $minutes) . '<strong></span> restantes';
         }
       } ?>
       </em></p>

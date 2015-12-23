@@ -64,7 +64,7 @@ $seconds = floor($delay % 60);
       <?php if (time() < $date) { ?>
       <p class="text-right"><em><?php 
         if ($days > 0) { 
-          echo '<span  class="text-primary"><strong>' . $days .'<strong></span> jours restants';
+          echo '<span  class="text-primary"><strong>' . $days .'</strong></span> jours restants';
         } else {
           echo '<span  class="text-primary"><strong>' . sprintf("%02d", $hours) . ':' . sprintf("%02d", $minutes) . '</strong></span> restantes';
         }

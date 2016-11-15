@@ -1,28 +1,29 @@
 <?php
+# Variables
+$goal_amount = 350000; # Currency: Euro
+$year = 2016;
+$campaign = 1;
+
+# API call
 include_once('credentials.php');
+$api_base = 'https://dons.wikimedia.fr/api/counter/get?';
+$api_login = 'user_api=' . $user_api . '&pwd_api=' . $pwd_api;
+$api_params = $api_login . '&frequency=once&campaigns[]=' . $campaign;
+$api_call = file_get_contents($api_base . $api_params);
 
-# DB connection
-try {
-    $bdd = new PDO("mysql:host=$hostname;dbname=$dbname;charset=utf8", $dbuser, $dbpass);
-} catch (Exception $e) {
-	die('Erreur : ' . $e->getMessage());
+$api_return = explode(';', $api_call);
+
+if ($api_return[0] == 1) {
+    $api_result = explode('|', $api_return[1]);
+    $current_amount = round($api_result[1]/100, 0);
+} else {
+    die('Cannot retrieve data');
 }
-
-$response = $bdd->query("SELECT FLOOR(SUM(total_amount)) AS current_amount FROM civicrm_contribution WHERE contribution_status_id = 1 AND financial_type_id IN (1, 3) AND receive_date >= '2015-12-01';");
-
-$data = $response->fetchAll();
-
-$current_amount = $data[0]['current_amount'];
-
-$response = $bdd->query("SELECT FLOOR(goal_revenue) AS goal_amount FROM civicrm_campaign WHERE id =4;");
-
-$data = $response->fetchAll();
-$goal_amount = $data[0]['goal_amount'];
 
 $percentage = round($current_amount/$goal_amount*100, 0);
 
 # Countdown
-$date = strtotime("2015-12-31 23:59:59 CET");
+$date = strtotime($year . "-12-31 23:59:59 CET");
 $delay = $date - time();
 $days = floor($delay / 86400);
 $hours = floor(($delay % 86400)/ 3600);
@@ -71,8 +72,8 @@ $seconds = floor($delay % 60);
       } ?>
       </em></p>
 
-  		<p>Wikimédia France ne vit que grâce à vos dons ! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,
-  		<strong><a href="http://dons.wikimedia.fr/civicrm/contribute/transact?reset=1&id=2" target="_blank" title="Soutenez-nous">soutenez-nous !</a></strong></p>
+  		<p>Wikimédia France ne vit que grâce à vos dons ! Pour que nous puissions continuer à soutenir la connaissance libre en <?php echo($year+1) ?>,
+  		<strong><a href="http://dons.wikimedia.fr/soutenez-nous/" target="_blank" title="Soutenez-nous">soutenez-nous !</a></strong></p>
 	</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

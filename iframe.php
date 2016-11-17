@@ -66,13 +66,6 @@ $seconds = floor($delay % 60);
 				</div>
 		</div>
   		<p class="text-center"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
-<?php } else { ?>
-
-<div>
-  <a href="http://dons.wikimedia.fr/soutenez-nous/">
-    <center><img src="https://crm.wikimedia.fr/sites/wikimedia/files/donate_button.png" /></center>
-  </a>
-</div>
 
 <?php } ?>
       <?php if (time() < $date) { ?>

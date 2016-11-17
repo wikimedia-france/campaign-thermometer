@@ -1,4 +1,7 @@
 <?php
+
+include('top-cache.php'); 
+
 # Variables
 $goal_amount = 350000; # Currency: Euro
 $year = 2016;
@@ -16,11 +19,11 @@ $api_return = explode(';', $api_call);
 if ($api_return[0] == 1) {
     $api_result = explode('|', $api_return[1]);
     $current_amount = round($api_result[1]/100, 0);
+    $percentage = round($current_amount/$goal_amount*100, 0);
+    $data_available = 1;
 } else {
-    die('Cannot retrieve data');
+    $data_available = 0;
 }
-
-$percentage = round($current_amount/$goal_amount*100, 0);
 
 # Countdown
 $date = strtotime($year . "-12-31 23:59:59 CET");
@@ -56,12 +59,22 @@ $seconds = floor($delay % 60);
   <body>
   	<div id="donations-thermometer">
   		<h3>On a besoin de vous !</h3>
+<?php if ($data_available) { ?>
   		<div class="progress">
 				<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $percentage; ?>%">
 				<span class="sr-only"><?php echo $percentage; ?>%</span><?php echo $percentage; ?>%
 				</div>
 		</div>
   		<p class="text-center"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
+<?php } else { ?>
+
+<div>
+  <a href="http://dons.wikimedia.fr/soutenez-nous/">
+    <center><img src="https://crm.wikimedia.fr/sites/wikimedia/files/donate_button.png" /></center>
+  </a>
+</div>
+
+<?php } ?>
       <?php if (time() < $date) { ?>
       <p class="text-right"><em><?php 
         if ($days > 0) { 
@@ -82,3 +95,4 @@ $seconds = floor($delay % 60);
   </body>
 </html>
 
+<?php include('bottom-cache.php'); ?>

@@ -17,7 +17,7 @@ $data = $response->fetchAll();
 
 $total_members = $data[0]['total_members'];
 
-$goal_number = 10000;
+$goal_number = round(( $total_members + 250) / 500 ) * 500;
 
 $percentage = round($total_members/$goal_number*100, 0);
 

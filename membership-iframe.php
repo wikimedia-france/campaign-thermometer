@@ -1,4 +1,7 @@
 <?php
+
+include('top-cache.php'); 
+
 include_once('credentials.php');
 
 # DB connection
@@ -14,17 +17,9 @@ $data = $response->fetchAll();
 
 $total_members = $data[0]['total_members'];
 
-$goal_number = 1000;
+$goal_number = 10000;
 
 $percentage = round($total_members/$goal_number*100, 0);
-
-# Countdown
-$date = strtotime("2015-12-31 23:59:59 CET");
-$delay = $date - time();
-$days = floor($delay / 86400);
-$hours = floor(($delay % 86400)/ 3600);
-$minutes = floor(($delay % 3600)/ 60);
-$seconds = floor($delay % 60);
 
 
 //*/
@@ -57,7 +52,7 @@ $seconds = floor($delay % 60);
 				<span class="sr-only"><?php echo $percentage; ?>%</span><?php echo $percentage; ?>%
 				</div>
 		</div>
-  		<p class="text-center"><?php echo number_format($current_amount, 0, ',', ' '); ?> / <?php echo number_format($goal_amount, 0, ',', ' '); ?> €</p>
+  		<p class="text-center"><?php echo number_format($total_members, 0, ',', ' '); ?> / <?php echo number_format($goal_number, 0, ',', ' '); ?> adhérents.</p>
       <?php if (time() < $date) { ?>
       <p class="text-right"><em><?php 
         if ($days > 0) { 
@@ -78,3 +73,5 @@ $seconds = floor($delay % 60);
   </body>
 </html>
 
+
+<?php include('bottom-cache.php'); ?>

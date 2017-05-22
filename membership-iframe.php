@@ -63,8 +63,8 @@ $percentage = round($total_members/$goal_number*100, 0);
       } ?>
       </em></p>
 
-  		<p>Wikimédia France ne vit que grâce à vos dons ! Pour que nous puissions continuer à soutenir la connaissance libre en 2016,
-  		<strong><a href="http://dons.wikimedia.fr/civicrm/contribute/transact?reset=1&id=2" target="_blank" title="Soutenez-nous">soutenez-nous !</a></strong></p>
+  		<p>Wikimédia France ne vit que grâce à ses membres ! Pour que nous puissions continuer à soutenir la connaissance libre en 2017,
+  		<strong><a href="https://dons.wikimedia.fr/adhesion/" target="_blank" title="Soutenez-nous">Rejoignez-nous !</a></strong></p>
 	</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

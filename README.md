@@ -1,6 +1,8 @@
 campaign_thermometer
 ===================
 
+Archived project, now maintained at https://framagit.org/wikimedia-france/campaign-thermometer
+
 A "thermometer" Widget for Wikimédia France’s donation campaign
 
 # Use
